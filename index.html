@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elishe 2026AW COLLECTION</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XRETQNERMT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XRETQNERMT');
+    </script>
+
+    <style>
+        /* ブラウザのデフォルトの余白をリセット */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        
+        /* LP全体を囲むコンテナ。中央寄せにし、最大幅を設ける */
+        .lp-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 画像の下に隙間ができないようにブロック要素にし、幅を100%にする */
+        .lp-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0;
+            padding: 0;
+            border: none;
+            pointer-events: none; /* ドラッグ時の画像ゴーストを防ぐ */
+        }
+
+        /* ＝＝＝ ここからスライド（カルーセル）用のスタイル ＝＝＝ */
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 20px; /* ドットのための余白 */
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+        
+        /* ドットがない場合は下の余白をなくす */
+        .carousel-wrapper.no-dots {
+            padding-bottom: 0;
+        }
+        
+        .carousel-track {
+            display: flex;
+            width: 100%;
+            cursor: grab;
+            /* スワイプ操作をスムーズにするための設定 */
+            touch-action: pan-y; 
+        }
+        
+        .carousel-track:active {
+            cursor: grabbing;
+        }
+        
+        /* カルーセル内の画像が縮まないように設定 */
+        .carousel-track img {
+            min-width: 100%;
+            flex-shrink: 0;
+            user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+        }
+        
+        /* ドットナビゲーション */
+        .carousel-dots {
+            position: absolute;
+            bottom: 0px; 
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            z-index: 10;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #cccccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .dot.active {
+            background-color: #666666;
+        }
+
+        /* ＝＝＝ ここから【ふわっと切り替わる（フェード）】用のスタイル ＝＝＝ */
+        .fade-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .fade-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            opacity: 0; /* 基本は透明にして見えなくする */
+            transition: opacity 1s ease-in-out; /* 1秒かけてふわっと変化 */
+            z-index: 1;
+        }
+        /* 1枚目の画像でブロック全体の高さを確保する */
+        .fade-wrapper img:first-child {
+            position: relative;
+        }
+        /* activeクラスがついた画像だけ表示する */
+        .fade-wrapper img.active {
+            opacity: 1;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lp-container">
+        <img src="LP_ELISHE_260911_01.jpg" alt="Elishe 2026AW COLLECTION vol.01">
+        
+        <img src="LP_ELISHE_260911_02.jpg" alt="Modern Duality LOOK 1">
+        
+        <div class="fade-wrapper">
+                <img src="LP_ELISHE_260911_03.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+                <img src="LP_ELISHE_260911_03-02.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+                <img src="LP_ELISHE_260911_03-03.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+                <img src="LP_ELISHE_260911_03-04.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+            </div>
+
+        <img src="LP_ELISHE_260911_04.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+        
+        <div class="fade-wrapper">
+            <img src="LP_ELISHE_260911_05.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION" class="active">
+            <img src="LP_ELISHE_260911_05-02.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+            <img src="LP_ELISHE_260911_05-03.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+            <img src="LP_ELISHE_260911_05-04.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+        </div>
+
+        <img src="LP_ELISHE_260911_06.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+
+        <div class="fade-wrapper">  
+                <img src="LP_ELISHE_260911_07.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+                <img src="LP_ELISHE_260911_07-02.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+            </div>
+
+        <img src="LP_ELISHE_260911_08.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+
+        <div class="fade-wrapper">
+            <img src="LP_ELISHE_260911_09.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION" class="active">
+            <img src="LP_ELISHE_260911_09-02.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+            <img src="LP_ELISHE_260911_09-03.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+        </div>
+
+        <img src="LP_ELISHE_260911_10.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+
+        <div class="fade-wrapper">   
+                <img src="LP_ELISHE_260911_11.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+                <img src="LP_ELISHE_260911_11-02.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+                <img src="LP_ELISHE_260911_11-03.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+                <img src="LP_ELISHE_260911_11-04.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+        </div>
+
+        <img src="LP_ELISHE_260911_12.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+
+        <div class="carousel-wrapper">
+            <div class="carousel-track">
+                <img src="LP_ELISHE_260911_13.png" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+                <img src="LP_ELISHE_260911_13-03.png" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+                <img src="LP_ELISHE_260911_13-04.png" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+            </div>
+            <div class="carousel-dots"></div>
+        </div>
+
+        <img src="LP_ELISHE_260911_14.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+
+        <div class="carousel-wrapper">
+            <div class="carousel-track">
+                <img src="LP_ELISHE_260911_15.png" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+                <img src="LP_ELISHE_260911_15-02.png" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+                <img src="LP_ELISHE_260911_15-03.png" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+            </div>
+            <div class="carousel-dots"></div>
+        </div>
+
+        <img src="LP_ELISHE_260911_16.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+
+        <div class="carousel-wrapper">
+            <div class="carousel-track">
+                <img src="LP_ELISHE_260911_17.png" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+                <img src="LP_ELISHE_260911_17-02.png" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+                <img src="LP_ELISHE_260911_17-03.png" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+                <img src="LP_ELISHE_260911_17-04.png" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+            </div>
+            <div class="carousel-dots"></div>
+        </div>
+        
+        <img src="LP_ELISHE_260911_18.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION">
+        <a href="https://zozo.jp/women-brand/elishe/"><img src="LP_ELISHE_260911_19.jpg" alt="Elishe エリシェ Elishe 2026AW COLLECTION"></a>
+    </div>
+
+    <script>
+        // ＝＝＝ 横スライド（カルーセル）用の処理 ＝＝＝
+        document.querySelectorAll('.carousel-wrapper').forEach(wrapper => {
+            const track = wrapper.querySelector('.carousel-track');
+            const images = Array.from(track.children);
+            const originalLength = images.length;
+            const dotsContainer = wrapper.querySelector('.carousel-dots');
+            let dots = [];
+
+            if (dotsContainer) {
+                for (let i = 0; i < originalLength; i++) {
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot');
+                    if (i === 0) dot.classList.add('active'); 
+                    
+                    dot.addEventListener('click', () => {
+                        currentSlide(i);
+                    });
+                    dotsContainer.appendChild(dot);
+                }
+                dots = Array.from(dotsContainer.children);
+            }
+
+            const firstClone = images[0].cloneNode(true);
+            const lastClone = images[originalLength - 1].cloneNode(true);
+            track.appendChild(firstClone);
+            track.insertBefore(lastClone, images[0]);
+
+            let slideIndex = 1; 
+            let isDragging = false;
+            let startPosX = 0;
+            let startPosY = 0;
+            let autoSlideInterval;
+
+            track.style.transform = `translateX(-${slideIndex * 100}%)`;
+
+            function updateSlide() {
+                track.style.transition = "transform 0.4s ease-in-out";
+                track.style.transform = `translateX(-${slideIndex * 100}%)`;
+
+                let dotIndex = slideIndex - 1;
+                if (dotIndex === originalLength) dotIndex = 0;
+                if (dotIndex < 0) dotIndex = originalLength - 1;
+                
+                if (dots.length > 0) {
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    if (dots[dotIndex]) {
+                        dots[dotIndex].classList.add('active');
+                    }
+                }
+            }
+
+            function nextSlide() {
+                if (slideIndex >= originalLength + 1) return;
+                slideIndex++;
+                updateSlide();
+            }
+            
+            function prevSlide() {
+                if (slideIndex <= 0) return;
+                slideIndex--;
+                updateSlide();
+            }
+
+            track.addEventListener('transitionend', () => {
+                const currentImage = track.children[slideIndex];
+                if (currentImage === firstClone) {
+                    track.style.transition = "none";
+                    slideIndex = 1;
+                    track.style.transform = `translateX(-${slideIndex * 100}%)`;
+                }
+                if (currentImage === lastClone) {
+                    track.style.transition = "none";
+                    slideIndex = originalLength;
+                    track.style.transform = `translateX(-${slideIndex * 100}%)`;
+                }
+            });
+
+            track.addEventListener('touchstart', touchStart, { passive: false });
+            track.addEventListener('touchmove', touchMove, { passive: false });
+            track.addEventListener('touchend', touchEnd);
+            
+            track.addEventListener('mousedown', touchStart);
+            track.addEventListener('mousemove', touchMove);
+            track.addEventListener('mouseup', touchEnd);
+            track.addEventListener('mouseleave', touchEnd);
+
+            function touchStart(e) {
+                clearInterval(autoSlideInterval);
+                startPosX = getPositionX(e);
+                startPosY = getPositionY(e);
+                isDragging = true;
+                track.style.transition = "none";
+            }
+
+            function touchMove(e) {
+                if (!isDragging) return;
+                
+                const currentPositionX = getPositionX(e);
+                const currentPositionY = getPositionY(e);
+                const diffX = currentPositionX - startPosX;
+                const diffY = currentPositionY - startPosY;
+
+                if (Math.abs(diffY) > Math.abs(diffX)) {
+                    return;
+                }
+
+                if (e.cancelable) {
+                    e.preventDefault();
+                }
+
+                const slideWidth = track.clientWidth;
+                const movePercent = (diffX / slideWidth) * 100;
+                track.style.transform = `translateX(calc(-${slideIndex * 100}% + ${movePercent}%))`;
+            }
+
+            function touchEnd(e) {
+                if (!isDragging) return;
+                isDragging = false;
+                
+                const endPos = e.type.includes('mouse') ? e.pageX : (e.changedTouches ? e.changedTouches[0].clientX : startPosX);
+                const diff = endPos - startPosX;
+
+                if (diff < -50) {
+                    nextSlide();
+                } else if (diff > 50) {
+                    prevSlide();
+                } else {
+                    updateSlide();
+                }
+                startAutoSlide();
+            }
+
+            function getPositionX(e) {
+                return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+            }
+            function getPositionY(e) {
+                return e.type.includes('mouse') ? e.pageY : e.touches[0].clientY;
+            }
+
+            function currentSlide(index) {
+                clearInterval(autoSlideInterval);
+                slideIndex = index + 1;
+                updateSlide();
+                startAutoSlide();
+            }
+
+            function startAutoSlide() {
+                clearInterval(autoSlideInterval);
+                autoSlideInterval = setInterval(nextSlide, 2000); 
+            }
+
+            startAutoSlide();
+        });
+
+        // ＝＝＝ ここから【ふわっと切り替わる（フェード）】用の処理 ＝＝＝
+        document.querySelectorAll('.fade-wrapper').forEach(wrapper => {
+            const images = wrapper.querySelectorAll('img');
+            let currentIndex = 0;
+
+            setInterval(() => {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+            }, 2500); 
+        });
+    </script>
+</body>
+</html>
